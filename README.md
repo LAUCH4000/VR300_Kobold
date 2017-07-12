@@ -1,16 +1,17 @@
-# node-botvac
-A node module for Neato Botvac Connected.
-Based on tomrosenbacks [PHP Port](https://github.com/tomrosenback/botvac) and [kanggurus work](https://github.com/kangguru/botvac) on the undocumented Neato API.
+# node-kobold
+A node module for Vorwerk Kobold VR200.
+
+Based on Pmant's [node-botvac](https://github.com/Pmant/node-botvac), thanks to tomrosenback's [PHP Port](https://github.com/tomrosenback/botvac), [kangguru's](https://github.com/kangguru/botvac) and [naofireblade's](https://github.com/naofireblade/node-botvac) work on the undocumented Neato / Vorwerk API.
 
 ## Installation
-```npm install node-botvac```
+```npm install node-kobold```
 
 <a name="example"></a>
 ## Usage Example
 ```Javascript
-var botvac = require('node-botvac');
+var kobold = require('node-kobold');
 
-var client = new botvac.Client();
+var client = new kobold.Client();
 //authorize
 client.authorize('email', 'password', false, function (error) {
     if (error) {
@@ -42,10 +43,10 @@ client.authorize('email', 'password', false, function (error) {
 <a name="authorize"></a>
 ### client.authorize(email, password, force, callback)
 
-Login at the neato api. 
+Login at the Vorwerk api. 
 
-* `email` - your neato email
-* `password` - your neato passwort
+* `email` - your Vorwerk email
+* `password` - your Vorwerk passwort
 * `force` - force login if already authorized
 * `callback` - `function(error)`
   * `error` null if no error occurred
@@ -136,7 +137,7 @@ var state = {
         easyConnect: 'basic-1',
         schedule: 'basic-1'
     },
-    meta: {modelName: 'BotVacConnected', firmware: '2.0.0'}};
+    meta: { modelName: 'VR200', firmware: '2.1.3' } };
 ```
 
 -------------------------------------------------------
@@ -237,5 +238,5 @@ Send robot to base.
   * `result` string - 'ok' if robot could be sent to base
   
 ## Changelog
-### 0.1.5
-* (naofireblade) add support for new parameter navigationMode (newer models)
+### 0.1.0
+* (nicoh88)  initial release

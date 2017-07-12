@@ -66,7 +66,7 @@ Returns an array containing your registered <a href="#robot">robots</a>.
 ## Robot Properties
 * ```robot.name``` - nickname of this robot (cannot be changed)
 * ```robot.eco``` boolean - set to true to clean in eco mode
-* ```robot.navigationMode``` number - 1: normal, 2: extra care (new models only)
+* ```robot.navigationMode``` number - 1: normal, 2: extra care (new neato models only)
 * ```robot.spotWidth``` number - width for spot cleaning in cm
 * ```robot.spotHeight``` number - height for spot cleaning in cm
 * ```robot.spotRepeat``` boolean - set to true to clean spot two times
@@ -177,7 +177,7 @@ Disables scheduling.
 Start cleaning.
 
 * `eco` boolean - clean in eco mode
-* `navigationMode` number - 1: normal, 2: extra care (new models only)
+* `navigationMode` number - 1: normal, 2: extra care (new neato models only)
 * `callback` - `function(error, result)`
   * `error` null if no error occurred
   * `result` string - 'ok' if cleaning could be started 
@@ -192,7 +192,7 @@ Start spot cleaning.
 * `width` number - spot width in cm (min 100cm)
 * `height` number - spot height in cm (min 100cm)
 * `repeat` boolean - clean spot two times
-* `navigationMode` number - 1: normal, 2: extra care (new models only)
+* `navigationMode` number - 1: normal, 2: extra care (new neato models only)
 * `callback` - `function(error, result)`
   * `error` null if no error occurred
   * `result` string - 'ok' if spot cleaning could be started 

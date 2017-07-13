@@ -239,4 +239,7 @@ Send robot to base.
   
 ## Changelog
 ### 0.1.0
-* (nicoh88)  initial release
+* (nicoh88) initial release
+
+### 0.1.2
+* (nicoh88) update for npmjs

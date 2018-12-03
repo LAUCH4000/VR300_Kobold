@@ -248,7 +248,7 @@ Start cleaning.
 
 * `eco` boolean - clean in eco mode
 * `navigationMode` number - 1: normal, 2: extra care (new neato models only)
-* `eco` boolean - clean with enabled nogo lines
+* `noGoLines` boolean - clean with enabled nogo lines
 * `callback` - `function(error, result)`
   * `error` null if no error occurred
   * `result` string - 'ok' if cleaning could be started 

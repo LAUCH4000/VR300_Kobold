@@ -2,20 +2,19 @@
   "name": "node-kobold",
   "version": "0.1.2",
   "description": "Vorwerk Kobold API",
+  "author": "nicoh88",
+  "license": "MIT",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "keywords": [
+    "vorwerk",
+    "kobold",
+    "vr200",
+    "vr300"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/nicoh88/node-kobold.git"
   },
-  "keywords": [
-    "neato",
-    "botvac"
-  ],
-  "author": "nicoh88",
-  "license": "MIT",
   "bugs": {
     "url": "https://github.com/nicoh88/node-kobold/issues"
   },

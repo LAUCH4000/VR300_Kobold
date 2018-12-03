@@ -65,11 +65,6 @@ Returns an array containing your registered <a href="#robot">robots</a>.
 <a name="robot"></a>
 ## Robot Properties
 * ```robot.name``` - nickname of this robot (cannot be changed)
-* ```robot.eco``` boolean - set to true to clean in eco mode
-* ```robot.navigationMode``` number - 1: normal, 2: extra care (new neato models only)
-* ```robot.spotWidth``` number - width for spot cleaning in cm
-* ```robot.spotHeight``` number - height for spot cleaning in cm
-* ```robot.spotRepeat``` boolean - set to true to clean spot two times
 
 These properties will be updated every time <a href="#getState"><code>robot.<b>getState()</b></code></a> is called:
 * ```robot.isCharging``` boolean
@@ -82,6 +77,12 @@ These properties will be updated every time <a href="#getState"><code>robot.<b>g
 * ```robot.canPause``` boolean - cleaning can be <a href="#api">paused</a>
 * ```robot.canResume``` boolean - cleaning can be <a href="#api">resumed</a>
 * ```robot.canGoToBase``` boolean - robot can be <a href="#api">sent to base</a>
+* ```robot.eco``` boolean - set to true to clean in eco mode
+* ```robot.noGoLines``` boolean - set to true to enable noGoLines
+* ```robot.navigationMode``` number - 1: normal, 2: extra care (new models only)
+* ```robot.spotWidth``` number - width for spot cleaning in cm
+* ```robot.spotHeight``` number - height for spot cleaning in cm
+* ```robot.spotRepeat``` boolean - set to true to clean spot two times
 
 <a name="api"></a>
 ## Robot API
@@ -172,12 +173,13 @@ Disables scheduling.
 
 -------------------------------------------------------
 <a name="startCleaning"></a>
-### robot.startCleaning([eco], [navigationMode], [callback])
+### robot.startCleaning([eco], [navigationMode], [noGoLines], [callback])
 
 Start cleaning.
 
 * `eco` boolean - clean in eco mode
 * `navigationMode` number - 1: normal, 2: extra care (new neato models only)
+* `eco` boolean - clean with enabled nogo lines
 * `callback` - `function(error, result)`
   * `error` null if no error occurred
   * `result` string - 'ok' if cleaning could be started 

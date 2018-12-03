@@ -1,5 +1,5 @@
 # node-kobold
-A node module for Vorwerk Kobold VR200.
+A node module for Vorwerk Kobold VR200 and VR300.
 
 Based on Pmant's [node-botvac](https://github.com/Pmant/node-botvac), thanks to tomrosenback's [PHP Port](https://github.com/tomrosenback/botvac), [kangguru's](https://github.com/kangguru/botvac) and [naofireblade's](https://github.com/naofireblade/node-botvac) work on the undocumented Neato / Vorwerk API.
 
@@ -245,3 +245,7 @@ Send robot to base.
 
 ### 0.1.2
 * (nicoh88) update for npmjs
+
+### 0.1.3
+* (nicoh88) NoGo Lines and options sync
+* (nicoh88) Syncing cleaning options from last runupdate for npmjs

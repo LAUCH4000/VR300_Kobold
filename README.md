@@ -107,38 +107,107 @@ Returns the state object of the robot. Also updates all robot properties.
   * `error` ```null``` if no error occurred
   * `state` ```object```
     * example:
- ```Javascript
+
+#### VR200
+
+```Javascript
 var state = {
-    version: 1,
-    reqId: '1',
-    result: 'ok',
-    error: 'ui_alert_invalid',
-    data: {},
-    state: 1,
-    action: 0,
-    cleaning: {category: 2, mode: 1, modifier: 1, spotWidth: 0, spotHeight: 0},
-    details: {
-        isCharging: false,
-        isDocked: true,
-        isScheduleEnabled: false,
-        dockHasBeenSeen: false,
-        charge: 98
-    },
-    availableCommands: {
-        start: true,
-        stop: false,
-        pause: false,
-        resume: false,
-        goToBase: false
-    },
-    availableServices: {
-        houseCleaning: 'basic-1',
-        spotCleaning: 'basic-1',
-        manualCleaning: 'basic-1',
-        easyConnect: 'basic-1',
-        schedule: 'basic-1'
-    },
-    meta: { modelName: 'VR200', firmware: '2.1.3' } };
+  version: 1,
+  reqId: '1',
+  result: 'ok',
+  error: 'ui_alert_invalid',
+  data: {},
+  state: 1,
+  action: 0,
+  cleaning: {
+    category: 2,
+    mode: 1,
+    modifier: 1,
+    spotWidth: 0,
+    spotHeight: 0
+  },
+  details: {
+    isCharging: false,
+    isDocked: true,
+    isScheduleEnabled: false,
+    dockHasBeenSeen: false,
+    charge: 98
+  },
+  availableCommands: {
+    start: true,
+    stop: false,
+    pause: false,
+    resume: false,
+    goToBase: false
+  },
+  availableServices: {
+    houseCleaning: 'basic-1',
+    spotCleaning: 'basic-1',
+    manualCleaning: 'basic-1',
+    easyConnect: 'basic-1',
+    schedule: 'basic-1'
+  },
+  meta: {
+    modelName: 'VR200',
+    firmware: '2.1.3'
+  }
+};
+```
+
+#### VR300
+
+```Javascript
+var state = {
+  version: 1,
+  reqId: '1',
+  result: 'ok',
+  data: {},
+  error: null,
+  alert: null,
+  state: 1,
+  action: 0,
+  cleaning: {
+    category: 4,
+    mode: 1,
+    modifier: 1,
+    navigationMode: 1,
+    mapId: '',
+    spotWidth: 0,
+    spotHeight: 0
+  },
+  details: {
+    isCharging: false,
+    isDocked: true,
+    isScheduleEnabled: false,
+    dockHasBeenSeen: false,
+    charge: 99
+  },
+  availableCommands: {
+    start: true,
+    stop: false,
+    pause: false,
+    resume: false,
+    goToBase: false
+  },
+  availableServices: {
+    findMe: 'basic-1',
+    generalInfo: 'basic-1',
+    houseCleaning: 'basic-3',
+    IECTest: 'advanced-1',
+    logCopy: 'basic-1',
+    manualCleaning: 'basic-1',
+    maps: 'advanced-1',
+    preferences: 'basic-1',
+    schedule: 'basic-1',
+    softwareUpdate: 'basic-1',
+    spotCleaning: 'basic-1',
+    wifi: 'basic-1'
+  },
+  meta: {
+    modelName: 'VR220',
+    firmware: '4.2.4-162'
+  }
+};
 ```
 
 -------------------------------------------------------

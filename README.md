@@ -7,7 +7,7 @@ Based on Pmant's [node-botvac](https://github.com/Pmant/node-botvac), thanks to 
 ```npm install node-kobold```
 
 <a name="example"></a>
-## Usage Example
+## Usage Example (old auth using password)
 ```Javascript
 var kobold = require('node-kobold');
 
@@ -34,9 +34,73 @@ client.authorize('email', 'password', false, function (error) {
 });
 ```
 
+## Usage OAuth2 (for i.e. MyKobold app)
+```Javascript
+var kobold = require('node-kobold');
+
+var client = new kobold.Client();
+//authorize
+client.setToken(token);
+
+//get your robots
+client.getRobots(function (error, robots) {
+    if (error) {
+        console.log(error);
+        return;
+    }
+    if (robots.length) {
+        //do something        
+        robots[0].getState(function (error, result) {
+            console.log(result);
+        });
+    }
+});
+```
+
+## Getting a token
+
+You can get a token using the following two curl commands:
+
+```bash
+# This will trigger the email sending
+curl -X "POST" "https://mykobold.eu.auth0.com/passwordless/start" \
+     -H 'Content-Type: application/json' \
+     -d $'{
+  "send": "code",
+  "email": "ENTER_YOUR_EMAIL_HERE",
+  "client_id": "KY4YbVAvtgB7lp8vIbWQ7zLk3hssZlhR",
+  "connection": "email"
+}'
+```
+==== wait for the email to be received ====
+
+```bash
+# this will generate a token using the numbers you received via email
+# replace the value of otp 123456 with the value you received from the email
+curl -X "POST" "https://mykobold.eu.auth0.com/oauth/token" \
+     -H 'Content-Type: application/json' \
+     -d $'{
+  "prompt": "login",
+  "grant_type": "http://auth0.com/oauth/grant-type/passwordless/otp",
+  "scope": "openid email profile read:current_user",
+  "locale": "en",
+  "otp": "123456",
+  "source": "vorwerk_auth0",
+  "platform": "ios",
+  "audience": "https://mykobold.eu.auth0.com/userinfo",
+  "username": "ENTER_YOUR_EMAIL_HERE",
+  "client_id": "KY4YbVAvtgB7lp8vIbWQ7zLk3hssZlhR",
+  "realm": "email",
+  "country_code": "DE"
+}'
+```
+
+From the output, you want to copy the `id_token` value.
+
 <a name="client"></a>
 ## Client API
   * <a href="#authorize"><code>client.<b>authorize()</b></code></a>
+  * <a href="#setToken"><code>client.<b>setToken()</b></code></a>
   * <a href="#getRobots"><code>client.<b>getRobots()</b></code></a>
  
 -------------------------------------------------------
@@ -50,6 +114,14 @@ Login at the Vorwerk api.
 * `force` - force login if already authorized
 * `callback` - `function(error)`
   * `error` null if no error occurred
+
+-------------------------------------------------------
+<a name="setToken"></a>
+### client.setToken(token)
+
+Set a token that you already gathered via the oauth workflow
+
+* `token` - the OAuth token you acquired
 
 -------------------------------------------------------
 <a name="getRobots"></a>
@@ -318,3 +390,6 @@ Send robot to base.
 ### 0.1.3
 * (nicoh88) NoGo Lines and options sync
 * (nicoh88) Syncing cleaning options from last runupdate for npmjs
+
+### 0.2.0
+* (carlambroselli) Add oauth2 option
